@@ -4,13 +4,13 @@
     "node": ">=16.14.2",
     "npm": ">=8.5.0"
   },
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Parse, validate and transform data with confidence in nuxt using `zod`",
   "scripts": {
     "test": "vitest --run",
     "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",
     "type": "tsc --noEmit",
-    "build": "rm -rf dist && tsup src/ --format cjs,esm --dts --dts-resolve",
+    "prepack": "rm -rf dist && tsup src/ --format cjs,esm --dts --dts-resolve",
     "docs": "npx typedoc src"
   },
   "exports": {

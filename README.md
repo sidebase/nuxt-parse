@@ -39,7 +39,7 @@ Then, e.g., in your code:
         })
 
         // Perform the request, use `makeParse` to pass a transformer for the data
-        const { data, error } = useFetch('https://httpbin.org/uuid', {
+        const { data, error } = await useFetch('https://httpbin.org/uuid', {
             transform: makeParser(responseSchema),
         })
 
@@ -59,7 +59,7 @@ Then, e.g., in your code:
         })
 
         // Perform the request, use `makeParse` to pass a transformer for the data
-        const { data, error } = useFetch('https://httpbin.org/ip', {
+        const { data, error } = await useFetch('https://httpbin.org/ip', {
             transform: makeParser(responseSchema),
         })
 
@@ -121,14 +121,12 @@ Then, e.g., in your code:
 
     const parsedData = await parseDataAs({ test: 1 }, z.object({ test: z.number() )}))
     console.log(parsedData)
-    // -> output: `1`
+    // -> output: `{ test: 1 }`
 
 
     const parsedData = await parseDataAs({ test: "1" }, z.object({ test: z.string().transform(v => parseInt(v)) )}))
     console.log(parsedData)
-    // -> output: `1` (we used `.transform` to ensure that we get a number)
-
-
+    // -> output: `{ test: 1 }` (we used `.transform` to ensure that we get a number)
     ```
 - Also works with async data, e.g., when fetching from another API or DB:
     ```ts
@@ -165,3 +163,10 @@ This module exports:
 
 [license-src]: https://img.shields.io/npm/l/@sidebase/nuxt-parse.svg
 [license-href]: https://npmjs.com/package/@sidebase/nuxt-parse
+
+## Development
+
+- Run `npm run test` to generate type stubs
+- Run `npm run lint` to run eslint
+- Run `npm run type` to run typescheck via tsc
+- Run `npm publish` to run build and publish the package
