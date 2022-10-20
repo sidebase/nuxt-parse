@@ -1,0 +1,61 @@
+{
+  "name": "@sidebase/nuxt-parse",
+  "engines": {
+    "node": ">=16.14.2",
+    "npm": ">=8.5.0"
+  },
+  "version": "0.2.6",
+  "description": "Parse, validate and transform data with confidence in nuxt using `zod`",
+  "scripts": {
+    "test": "vitest --run",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",
+    "type": "tsc --noEmit",
+    "build": "rm -rf dist && tsup src/ --format cjs,esm --dts --dts-resolve",
+    "docs": "npx typedoc src"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidebase/nuxt-parse"
+  },
+  "keywords": [
+    "zod",
+    "nuxt",
+    "typescript",
+    "parsing",
+    "validation",
+    "vue",
+    "h3"
+  ],
+  "author": "sidestream-tech <support@sidestream.tech>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sidebase/sidebase/issues/new/choose"
+  },
+  "homepage": "https://github.com/sidebase/nuxt-parse",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "@vitest/coverage-c8": "^0.23.1",
+    "eslint": "^8.23.0",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.2",
+    "vitest": "^0.23.1"
+  },
+  "dependencies": {
+    "h3": "^0.7.21",
+    "zod": "^3.19.0"
+  }
+}
