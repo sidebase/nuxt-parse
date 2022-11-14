@@ -4,7 +4,7 @@
     "node": ">=16.14.2",
     "npm": ">=8.5.0"
   },
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Parse, validate and transform data with confidence in nuxt using `zod`",
   "scripts": {
     "test": "vitest --run",
@@ -50,13 +50,12 @@
     "@typescript-eslint/parser": "^5.36.2",
     "@vitest/coverage-c8": "^0.23.1",
     "eslint": "^8.23.0",
-    "nuxt": "^3.0.0-rc.13",
     "tsup": "^6.2.3",
     "typescript": "^4.8.2",
     "vitest": "^0.23.1"
   },
   "dependencies": {
-    "h3": "^0.7.21",
+    "h3": "^0.8.0",
     "zod": "^3.19.0"
   }
 }
