@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createError, readBody, getQuery, getHeaders, parseCookies } from "h3"
-import type { CompatibilityEvent } from "h3"
+import type { H3Event } from "h3"
 import { z } from "zod"
 
 const apiValidateWithSchema = <ZodSchema extends z.ZodTypeAny>(
@@ -25,12 +25,12 @@ const apiValidateWithSchema = <ZodSchema extends z.ZodTypeAny>(
  *
  * Cookies are part of the HTTP standard and may be send with a request.
  *
- * @param {CompatibilityEvent} event - Input to parse using the passed `schema`
+ * @param {H3Event} event - Input to parse using the passed `schema`
  * @param {ZodSchema} schema - Error code of error if parsing fails
  * @param {string} [errorCode=422] - Optional error message if parsing fails
  * @param {string} [errorMessage="Data parsing failed"] - Optional error message if parsing fails
  */
-async function parseBodyAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent, schema: ZodSchema, errorCode = 422, errorMessage = "Body parsing failed") {
+async function parseBodyAs<ZodSchema extends z.ZodTypeAny>(event: H3Event, schema: ZodSchema, errorCode = 422, errorMessage = "Body parsing failed") {
   const data = await readBody(event)
   return apiValidateWithSchema(data, schema, errorCode, errorMessage)
 }
@@ -40,12 +40,12 @@ async function parseBodyAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityE
  *
  * For example `/[test].get.ts` binds the parameter `test` to a value, for example `/1` then results in `test = 1`
  *
- * @param {CompatibilityEvent} event - Input to parse using the passed `schema`
+ * @param {H3Event} event - Input to parse using the passed `schema`
  * @param {ZodSchema} schema - Error code of error if parsing fails
  * @param {string} [errorCode=422] - Optional error message if parsing fails
  * @param {string} [errorMessage="Data parsing failed"] - Optional error message if parsing fails
  */
-function parseParamsAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent, schema: ZodSchema, errorCode = 422, errorMessage = "Parameter parsing failed") {
+function parseParamsAs<ZodSchema extends z.ZodTypeAny>(event: H3Event, schema: ZodSchema, errorCode = 422, errorMessage = "Parameter parsing failed") {
   const data = event.context.params
   return apiValidateWithSchema(data, schema, errorCode, errorMessage)
 }
@@ -55,12 +55,12 @@ function parseParamsAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent
  *
  * For example `/bar?sort=ASC` binds the query value `sort = "ASC"`
  *
- * @param {CompatibilityEvent} event - Input to parse using the passed `schema`
+ * @param {H3Event} event - Input to parse using the passed `schema`
  * @param {ZodSchema} schema - Error code of error if parsing fails
  * @param {string} [errorCode=422] - Optional error message if parsing fails
  * @param {string} [errorMessage="Data parsing failed"] - Optional error message if parsing fails
  */
-function parseQueryAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent, schema: ZodSchema, errorCode = 422, errorMessage = "Query parsing failed") {
+function parseQueryAs<ZodSchema extends z.ZodTypeAny>(event: H3Event, schema: ZodSchema, errorCode = 422, errorMessage = "Query parsing failed") {
   const data = getQuery(event)
   return apiValidateWithSchema(data, schema, errorCode, errorMessage)
 }
@@ -70,12 +70,12 @@ function parseQueryAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent,
  *
  * Cookies are part of the HTTP standard and send with every request.
  *
- * @param {CompatibilityEvent} event - Input to parse using the passed `schema`
+ * @param {H3Event} event - Input to parse using the passed `schema`
  * @param {ZodSchema} schema - Error code of error if parsing fails
  * @param {string} [errorCode=422] - Optional error message if parsing fails
  * @param {string} [errorMessage="Data parsing failed"] - Optional error message if parsing fails
  */
-function parseCookieAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent, schema: ZodSchema, errorCode = 422, errorMessage = "Cookie parsing failed") {
+function parseCookieAs<ZodSchema extends z.ZodTypeAny>(event: H3Event, schema: ZodSchema, errorCode = 422, errorMessage = "Cookie parsing failed") {
   const data = parseCookies(event)
   return apiValidateWithSchema(data, schema, errorCode, errorMessage)
 }
@@ -85,12 +85,12 @@ function parseCookieAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent
  *
  * Cookies are part of the HTTP standard and send with every request.
  *
- * @param {CompatibilityEvent} event - Input to parse using the passed `schema`
+ * @param {H3Event} event - Input to parse using the passed `schema`
  * @param {ZodSchema} schema - Error code of error if parsing fails
  * @param {string} [errorCode=422] - Optional error message if parsing fails
  * @param {string} [errorMessage="Data parsing failed"] - Optional error message if parsing fails
  */
-function parseHeaderAs<ZodSchema extends z.ZodTypeAny>(event: CompatibilityEvent, schema: ZodSchema, errorCode = 422, errorMessage = "Header parsing failed") {
+function parseHeaderAs<ZodSchema extends z.ZodTypeAny>(event: H3Event, schema: ZodSchema, errorCode = 422, errorMessage = "Header parsing failed") {
   const data = getHeaders(event)
   return apiValidateWithSchema(data, schema, errorCode, errorMessage)
 }
