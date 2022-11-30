@@ -1,0 +1,8 @@
+sidebase/nuxt-parse:
+  - docs/content
+  - docs/public
+sidebase/docs:
+  - source: docs/content/
+    dest: content/4.nuxt-parse/
+  - source: docs/public/
+    dest: public/
