@@ -3,6 +3,6 @@ sidebase/nuxt-parse:
   - docs/public
 sidebase/docs:
   - source: docs/content/
-    dest: content/4.nuxt-parse/
+    dest: content/5.nuxt-parse/
   - source: docs/public/
     dest: public/
