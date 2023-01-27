@@ -7,7 +7,7 @@
 [![GitHub stars](https://badgen.net/github/stars/sidebase/nuxt-parse)](https://GitHub.com/sidebase/nuxt-parse/)
 [![License][license-src]][license-href]
 [![Follow us on Twitter](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/sidebase_io)
-[![Join our Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/9MUHR8WT9B)
+[![Join our Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/NDDgQkcv3s)
 
 > A nuxt focused package to make data validation and parsing easy. This package follows the design philosophy of the article [parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/). It uses [`zod`](https://github.com/colinhacks/zod) for parsing data from the user, APIs, your own functions, ...
 
